@@ -1,118 +1,18 @@
 <!DOCTYPE html>
-<html lang="fr" class="scroll-smooth">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StateScript | Nos Offres</title>
+    <title>Maintenance | StateScript</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body { background-color: #05020a; color: white; }
-        .card { background: rgba(20, 15, 30, 0.8); border: 1px solid rgba(139, 92, 246, 0.3); }
-        .btn-grad { background: linear-gradient(90deg, #7c3aed 0%, #4f46e5 100%); }
-    </style>
 </head>
-<body>
-
-    <!-- Header -->
-    <nav class="p-6 flex justify-between items-center max-w-5xl mx-auto">
-        <div class="text-2xl font-black italic">State<span class="text-purple-500">Script</span></div>
-        <div class="flex gap-4 text-sm font-bold text-gray-300">
-            <span>Accueil</span>
-            <span class="text-white">Nos Offres</span>
+<body class="bg-[#05020a] text-white h-screen flex items-center justify-center">
+    <div class="text-center p-8">
+        <h1 class="text-5xl font-black mb-4">State<span class="text-purple-500">Script</span></h1>
+        <p class="text-gray-400 text-lg mb-6">Nous effectuons une petite mise à jour.</p>
+        <div class="inline-block px-6 py-2 bg-purple-600/20 border border-purple-500/50 rounded-full text-purple-400 font-bold">
+            Retour très bientôt
         </div>
-    </nav>
-
-    <!-- Vidéo Directe -->
-    <section class="flex justify-center py-6 px-4">
-        <div class="w-full max-w-[325px] overflow-hidden rounded-3xl border border-purple-500/30">
-            <video 
-                class="w-full h-auto" 
-                controls 
-                autoplay 
-                loop 
-                muted 
-                playsinline
-                src="https://v16m-default.tiktokcdn-us.com/4aea85575436db61a2183b99e9827eff/6a2e21dc/video/tos/no1a/tos-no1a-ve-0068c001-no/oA89RuOBpIkDEhFw1BfiwnpiEgBQlSARfgPaTj/?a=0&bti=OHYpOTY0Zik3OjlmOm01MzE6ZDQ0MDo%3D&&bt=954&ft=4bBsyMt_8Zmo0CnQda4jV8StpW1rKsd.&mime_type=video_mp4&rc=NDVoNjw4ZWg7NjY4aTo1Z0BpM3Y0cmo5cnl3OjMzbzczNUAxYGA1LzUtXy8xNGE2NjJiYSM0MHBmMmQ0NnJhLS1kMTFzcw%3D%3D&vvpl=1&l=20260613213628E0DCFA08DF5DA78F0899&btag=e00088000">
-            </video>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="py-8 text-center">
-        <div class="flex justify-center gap-12 mb-4">
-            <div>
-                <div class="text-4xl font-black text-purple-500">178</div>
-                <div class="text-xs font-bold text-gray-400 uppercase tracking-widest">Clés actives</div>
-            </div>
-            <div>
-                <div class="text-4xl font-black text-purple-500">59</div>
-                <div class="text-xs font-bold text-gray-400 uppercase tracking-widest">Avis positifs</div>
-            </div>
-        </div>
-        <div class="mt-6">
-            <div class="text-3xl font-black text-purple-500">14/03/2026</div>
-            <div class="text-xs font-bold text-gray-400 uppercase tracking-widest">Date de lancement</div>
-        </div>
-    </section>
-
-    <!-- Titre -->
-    <section class="py-12 text-center">
-        <h2 class="text-4xl font-black mb-12">Choisissez votre accès</h2>
-    </section>
-
-    <!-- Offres -->
-    <main class="max-w-md mx-auto px-4 pb-12 flex flex-col gap-8">
-        
-        <!-- 1 Semaine -->
-        <div class="card p-8 rounded-[2rem]">
-            <h3 class="text-xl font-bold mb-2">1 Semaine</h3>
-            <p class="text-5xl font-black text-purple-500 mb-6">15€</p>
-            <ul class="text-gray-300 mb-8 space-y-2">
-                <li class="flex items-center gap-2">✓ Full Aimbot & ESP</li>
-                <li class="flex items-center gap-2">✓ Auto-TP</li>
-            </ul>
-            <p class="text-xs text-gray-400 mb-6 text-center">Paiement par carte cadeau PayPal. Envoyez le code à <strong>_kirkz_</strong> sur Discord après achat.</p>
-            <a href="https://www.g2a.com/fr/paypal-gift-card-15-eur-by-rewarble-global-i10000339995020" target="_blank" class="block w-full text-center py-4 rounded-2xl font-bold btn-grad hover:opacity-90 transition">Payer 15€</a>
-        </div>
-
-        <!-- 2 Semaines -->
-        <div class="card p-8 rounded-[2rem]">
-            <h3 class="text-xl font-bold mb-2">2 Semaines</h3>
-            <p class="text-5xl font-black text-purple-500 mb-6">25€</p>
-            <ul class="text-gray-300 mb-8 space-y-2">
-                <li class="flex items-center gap-2">✓ Full Aimbot & ESP</li>
-                <li class="flex items-center gap-2">✓ Auto-TP</li>
-            </ul>
-            <p class="text-xs text-gray-400 mb-6 text-center">Paiement par carte cadeau PayPal. Envoyez le code à <strong>_kirkz_</strong> sur Discord après achat.</p>
-            <a href="https://www.g2a.com/fr/paypal-gift-card-25-eur-by-rewarble-global-i10000339995003" target="_blank" class="block w-full text-center py-4 rounded-2xl font-bold btn-grad hover:opacity-90 transition">Payer 25€</a>
-        </div>
-
-        <!-- 1 Mois VIP -->
-        <div class="card p-8 rounded-[2rem]">
-            <h3 class="text-xl font-bold mb-2">1 Mois VIP</h3>
-            <p class="text-5xl font-black text-purple-500 mb-6">40€</p>
-            <ul class="text-gray-300 mb-8 space-y-2">
-                <li class="flex items-center gap-2">✓ Toutes les fonctionnalités</li>
-                <li class="flex items-center gap-2">✓ Support 24/7</li>
-            </ul>
-            <p class="text-xs text-gray-400 mb-4 text-center">Paiement par carte cadeau PayPal. Envoyez le code à <strong>_kirkz_</strong> sur Discord après achat.</p>
-            <div class="flex items-center gap-3 bg-emerald-900/20 p-4 rounded-xl border border-emerald-900/50 mb-6 text-emerald-400 font-bold">
-                <span>⚡ Certificat Inclus & Offert</span>
-            </div>
-            <a href="https://www.g2a.com/fr/paypal-gift-card-40-eur-by-rewarble-global-i10000339995021" target="_blank" class="block w-full text-center py-4 rounded-2xl font-bold btn-grad hover:opacity-90 transition">Payer 40€</a>
-        </div>
-    </main>
-
-    <!-- Contact Discord -->
-    <section class="max-w-md mx-auto px-4 pb-16 text-center">
-        <h4 class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-4">Après le paiement</h4>
-        <div class="bg-white/5 p-4 rounded-xl border border-white/10">
-            <p class="text-sm font-bold text-white mb-3">Envoyez une preuve de paiement sur Discord :</p>
-            <div class="flex items-center justify-center gap-2 font-mono text-indigo-400 font-bold bg-black/40 py-2 rounded-lg">
-                <span>_kirkz_</span>
-            </div>
-        </div>
-    </section>
-
+    </div>
 </body>
 </html>
