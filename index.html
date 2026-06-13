@@ -15,8 +15,10 @@
 </head>
 <body>
 
+    <!-- Animation Arrière-plan -->
     <div id="particles-js"></div>
 
+    <!-- Header -->
     <nav class="p-6 flex justify-between items-center max-w-5xl mx-auto">
         <div class="text-2xl font-black italic">State<span class="text-purple-500">Script</span></div>
         <div class="flex gap-4 text-sm font-bold text-gray-300">
@@ -25,6 +27,7 @@
         </div>
     </nav>
 
+    <!-- Vidéo Directe -->
     <section class="flex justify-center py-6 px-4">
         <div class="w-full max-w-[325px] overflow-hidden rounded-3xl border border-purple-500/30">
             <video 
@@ -39,6 +42,7 @@
         </div>
     </section>
 
+    <!-- Stats Section -->
     <section class="py-8 text-center">
         <div class="flex justify-center gap-12 mb-4">
             <div>
@@ -56,11 +60,15 @@
         </div>
     </section>
 
+    <!-- Titre -->
     <section class="py-12 text-center">
         <h2 class="text-4xl font-black mb-12">Choisissez votre accès</h2>
     </section>
 
+    <!-- Offres -->
     <main class="max-w-md mx-auto px-4 pb-12 flex flex-col gap-8">
+        
+        <!-- 1 Semaine -->
         <div class="card p-8 rounded-[2rem]">
             <h3 class="text-xl font-bold mb-2">1 Semaine</h3>
             <p class="text-5xl font-black text-purple-500 mb-6">15€</p>
@@ -70,6 +78,8 @@
             </ul>
             <a href="https://www.g2a.com/fr/paypal-gift-card-15-eur-by-rewarble-global-i10000339995020" target="_blank" class="block w-full text-center py-4 rounded-2xl font-bold btn-grad hover:opacity-90 transition">Payer 15€</a>
         </div>
+
+        <!-- 2 Semaines -->
         <div class="card p-8 rounded-[2rem]">
             <h3 class="text-xl font-bold mb-2">2 Semaines</h3>
             <p class="text-5xl font-black text-purple-500 mb-6">25€</p>
@@ -79,6 +89,8 @@
             </ul>
             <a href="https://www.g2a.com/fr/paypal-gift-card-25-eur-by-rewarble-global-i10000339995003" target="_blank" class="block w-full text-center py-4 rounded-2xl font-bold btn-grad hover:opacity-90 transition">Payer 25€</a>
         </div>
+
+        <!-- 1 Mois VIP -->
         <div class="card p-8 rounded-[2rem]">
             <h3 class="text-xl font-bold mb-2">1 Mois VIP</h3>
             <p class="text-5xl font-black text-purple-500 mb-6">40€</p>
@@ -90,15 +102,30 @@
         </div>
     </main>
 
+    <!-- Contact Discord -->
+    <section class="max-w-md mx-auto px-4 pb-16 text-center">
+        <h4 class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-4">Après le paiement</h4>
+        <div class="bg-white/5 p-4 rounded-xl border border-white/10">
+            <p class="text-sm font-bold text-white mb-3">Envoyez une preuve de paiement sur Discord :</p>
+            <div class="flex items-center justify-center gap-2 font-mono text-indigo-400 font-bold bg-black/40 py-2 rounded-lg">
+                <span>_kirkz_</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Initialisation Particles -->
     <script>
         particlesJS("particles-js", {
             "particles": {
                 "number": { "value": 80 },
                 "color": { "value": "#7c3aed" },
+                "shape": { "type": "circle" },
+                "size": { "value": 2, "random": true },
                 "line_linked": { "enable": true, "distance": 150, "color": "#7c3aed", "opacity": 0.4, "width": 1 },
-                "move": { "enable": true, "speed": 2 }
+                "move": { "enable": true, "speed": 1 }
             }
         });
     </script>
+
 </body>
 </html>
