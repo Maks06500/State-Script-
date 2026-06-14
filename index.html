@@ -57,6 +57,16 @@
             50% { color: #ffffff; text-shadow: 0 0 15px rgba(255, 255, 255, 0.8); }
             100% { color: #8b5cf6; text-shadow: 0 0 8px rgba(139, 92, 246, 0.5); }
         }
+
+        /* Animation Gamer bloc */
+        .animate-block-glow {
+            animation: glow-pulse 3s infinite alternate;
+        }
+        @keyframes glow-pulse {
+            0% { border-color: rgba(139, 92, 246, 0.3); box-shadow: 0 0 5px rgba(139, 92, 246, 0.2); background-color: rgba(20, 15, 30, 0.8); }
+            50% { border-color: rgba(139, 92, 246, 0.8); box-shadow: 0 0 20px rgba(139, 92, 246, 0.6); background-color: rgba(30, 20, 50, 0.9); }
+            100% { border-color: rgba(139, 92, 246, 0.3); box-shadow: 0 0 5px rgba(139, 92, 246, 0.2); background-color: rgba(20, 15, 30, 0.8); }
+        }
     </style>
 </head>
 <body>
@@ -153,7 +163,7 @@
             <a href="https://discord.com/users/_kirkz_" target="_blank" class="block w-full text-center py-3 rounded-2xl font-bold btn-discord hover:opacity-90 transition"><i class="fa-brands fa-discord mr-2"></i>Contacter</a>
         </div>
 
-        <div class="text-center p-6 bg-purple-900/20 border border-purple-500/30 rounded-2xl">
+        <div class="animate-block-glow card p-8 rounded-[2rem] border transition-all duration-500 text-center">
             <p class="text-sm font-bold text-white mb-2">Nous sommes les fournisseurs des scripts One States les plus fiables du marché.</p>
             <p class="text-xs text-purple-300 italic">"Votre satisfaction est notre priorité, nous nous engageons à vous offrir une expérience de jeu sécurisée et performante."</p>
         </div>
