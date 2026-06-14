@@ -16,11 +16,11 @@
     </style>
 </head>
 <body>
+
     <div id="particles-js"></div>
 
     <nav class="p-6 max-w-5xl mx-auto flex justify-between items-center">
         <a href="index.html" class="text-2xl font-black italic block">State<span class="text-purple-500">Script</span></a>
-        <!-- Sélecteur de langue -->
         <div class="flex gap-2 font-bold text-sm">
             <button onclick="setLang('fr')" class="hover:text-purple-500">FR</button>
             <span>|</span>
@@ -33,7 +33,7 @@
         
         <div class="card p-8 rounded-3xl space-y-6">
             <ol class="space-y-4 text-gray-300" id="content">
-                <!-- Contenu dynamique -->
+                <!-- Contenu chargé par JS -->
             </ol>
         </div>
 
@@ -46,7 +46,9 @@
         <div class="mt-16 text-center">
             <p class="text-gray-500 text-sm mb-4" id="payment">Paiements 100% sécurisés :</p>
             <div class="flex justify-center gap-8 text-3xl text-gray-400">
-                <i class="fa-brands fa-paypal"></i> <i class="fa-solid fa-credit-card"></i> <i class="fa-brands fa-apple-pay"></i>
+                <i class="fa-brands fa-paypal"></i>
+                <i class="fa-solid fa-credit-card"></i>
+                <i class="fa-brands fa-apple-pay"></i>
             </div>
         </div>
     </main>
@@ -55,13 +57,13 @@
         const translations = {
             fr: {
                 title: "Processus d'installation",
-                steps: ["Choisissez la fonction du cheat que vous voulez.", "Payez la carte cadeau PayPal correspondante.", "Envoyez le code sur Discord à _kirkz_.", "Vous recevrez tous les fichiers (le script, le fichier One State à jour, et la certification).", "Il est possible d'être guidé en appel Discord durant toute l'installation."],
+                steps: ["Choisissez la fonction du cheat que vous voulez !", "Ensuite payer la carte cadeau paypal.", "Envoyer le code sur discord à _kirkz_.", "Vous allez recevoir tout les fichiers (le script, le fichier one state à jour, et la certification).", "Il est possible d’être guider en appel discord durant toute l’installation."],
                 contact: "Contacter _kirkz_ sur Discord",
                 payment: "Paiements 100% sécurisés :"
             },
             en: {
                 title: "Installation Process",
-                steps: ["Choose the cheat function you want.", "Pay for the corresponding PayPal gift card.", "Send the code on Discord to _kirkz_.", "You will receive all files (the script, the updated One State file, and the certification).", "It is possible to be guided in a Discord call throughout the installation."],
+                steps: ["Choose the cheat function you want !", "Then pay for the PayPal gift card.", "Send the code on Discord to _kirkz_.", "You will receive all files (the script, the updated One State file, and the certification).", "It is possible to be guided in a Discord call throughout the installation."],
                 contact: "Contact _kirkz_ on Discord",
                 payment: "100% secure payments :"
             }
@@ -77,10 +79,18 @@
                 list.innerHTML += `<li class="flex gap-4"><span class="font-bold text-purple-500">${index + 1}.</span> <span>${step}</span></li>`;
             });
         }
-        // Par défaut
         setLang('fr');
 
-        particlesJS("particles-js", { "particles": { "number": { "value": 80 }, "color": { "value": "#7c3aed" }, "move": { "enable": true, "speed": 1 } } });
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 80 },
+                "color": { "value": "#7c3aed" },
+                "shape": { "type": "circle" },
+                "size": { "value": 2, "random": true },
+                "line_linked": { "enable": true, "distance": 150, "color": "#7c3aed", "opacity": 0.4, "width": 1 },
+                "move": { "enable": true, "speed": 1 }
+            }
+        });
     </script>
 </body>
 </html>
