@@ -7,6 +7,26 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Code de protection Firebase -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js";
+        
+        const firebaseConfig = {
+            apiKey: "AIzaSyCdaDhtjMSu1cdW5qbtGN47pkOEyh3yi1A",
+            authDomain: "scriptstate-2d090.firebaseapp.com",
+            projectId: "scriptstate-2d090"
+        };
+        
+        const app = initializeApp(firebaseConfig);
+        onAuthStateChanged(getAuth(app), (user) => {
+            if (!user) {
+                window.location.href = "login.html";
+            }
+        });
+    </script>
+
     <style>
         body { color: white; margin: 0; padding: 0; }
         .card { background: rgba(20, 15, 30, 0.8); border: 1px solid rgba(139, 92, 246, 0.3); }
