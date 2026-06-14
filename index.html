@@ -47,6 +47,16 @@
             0%, 100% { transform: scale(1); opacity: 1; }
             50% { transform: scale(1.05); opacity: 0.8; }
         }
+
+        /* Animation Gamer Violet <-> Blanc */
+        .animate-gamer-text {
+            animation: gamer-pulse 3s infinite alternate;
+        }
+        @keyframes gamer-pulse {
+            0% { color: #8b5cf6; text-shadow: 0 0 8px rgba(139, 92, 246, 0.5); }
+            50% { color: #ffffff; text-shadow: 0 0 15px rgba(255, 255, 255, 0.8); }
+            100% { color: #8b5cf6; text-shadow: 0 0 8px rgba(139, 92, 246, 0.5); }
+        }
     </style>
 </head>
 <body>
@@ -93,7 +103,7 @@
     </section>
 
     <section class="py-12 text-center">
-        <h2 class="text-4xl font-black mb-12 animate-pulse-slow">Choisissez l’offre du Script</h2>
+        <h2 class="text-4xl font-black mb-12 animate-gamer-text">Choisissez l’offre du Script</h2>
     </section>
 
     <main class="max-w-md mx-auto px-4 pb-12 flex flex-col gap-8">
