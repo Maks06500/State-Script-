@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Connexion | StateScript</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- EmailJS SDK -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">
         (function(){ emailjs.init("GuDZVe8Y2EDKr8xB4"); })();
@@ -23,7 +24,7 @@
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
-        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js";
 
         const auth = getAuth(initializeApp({
             apiKey: "AIzaSyCdaDhtjMSu1cdW5qbtGN47pkOEyh3yi1A",
@@ -35,6 +36,7 @@
 
         window.sendCode = function() {
             generatedCode = Math.floor(100000 + Math.random() * 900000).toString();
+            // Utilisation de ton service 'service_e5r5jcg' et template 'template_j7tsg07'
             emailjs.send("service_e5r5jcg", "template_j7tsg07", {
                 to_email: document.getElementById('email').value,
                 code: generatedCode
@@ -48,12 +50,12 @@
 
         window.verifyAndRegister = function() {
             const userInput = document.getElementById('verificationCode').value;
-            if (userInput === generatedCode) {
+            if (userInput === generatedCode && userInput !== "") {
                 createUserWithEmailAndPassword(auth, document.getElementById('email').value, document.getElementById('password').value)
-                    .then(() => { alert("Compte créé !"); window.location.href = "index.html"; })
+                    .then(() => { alert("Compte créé avec succès !"); window.location.href = "index.html"; })
                     .catch((e) => alert("Erreur Firebase : " + e.message));
             } else {
-                alert("Code incorrect !");
+                alert("Code incorrect ou vide !");
             }
         };
     </script>
