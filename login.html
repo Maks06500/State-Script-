@@ -4,42 +4,9 @@
     <meta charset="UTF-8">
     <title>Connexion | StateScript</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
-        import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js";
-
-        const firebaseConfig = {
-            apiKey: "AIzaSyCdaDhtjMSu1cdW5qbtGN47pkOEyh3yi1A",
-            authDomain: "scriptstate-2d090.firebaseapp.com",
-            projectId: "scriptstate-2d090",
-            storageBucket: "scriptstate-2d090.firebasestorage.app",
-            messagingSenderId: "751420301339",
-            appId: "1:751420301339:web:4647db7c91941b195198be"
-        };
-
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-
-        // Connexion
-        window.login = function() {
-            const email = document.getElementById('email').value;
-            const pass = document.getElementById('password').value;
-            signInWithEmailAndPassword(auth, email, pass)
-                .then(() => window.location.href = "index.html")
-                .catch((error) => alert("Erreur de connexion : " + error.message));
-        };
-
-        // Inscription
-        window.register = function() {
-            const email = document.getElementById('email').value;
-            const pass = document.getElementById('password').value;
-            createUserWithEmailAndPassword(auth, email, pass)
-                .then(() => {
-                    alert("Compte créé avec succès !");
-                    window.location.href = "index.html";
-                })
-                .catch((error) => alert("Erreur d'inscription : " + error.message));
-        };
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){ emailjs.init("GuDZVe8Y2EDKr8xB4"); })();
     </script>
 </head>
 <body class="bg-[#05020a] text-white flex items-center justify-center h-screen">
@@ -47,8 +14,48 @@
         <h2 class="text-xl font-bold mb-4 text-center">Connexion / Inscription</h2>
         <input id="email" type="email" placeholder="Email" class="w-full p-2 mb-2 bg-black rounded border border-gray-600">
         <input id="password" type="password" placeholder="Mot de passe" class="w-full p-2 mb-4 bg-black rounded border border-gray-600">
-        <button onclick="login()" class="w-full py-2 mb-2 bg-purple-600 rounded font-bold">Se connecter</button>
-        <button onclick="register()" class="w-full py-2 bg-gray-700 rounded font-bold">S'inscrire</button>
+        
+        <input id="verificationCode" type="text" placeholder="Code reçu par email" class="w-full p-2 mb-4 bg-black rounded border border-gray-600 hidden">
+        
+        <button id="sendBtn" onclick="sendCode()" class="w-full py-2 mb-2 bg-blue-600 rounded font-bold">Envoyer code par mail</button>
+        <button id="registerBtn" onclick="verifyAndRegister()" class="w-full py-2 bg-purple-600 rounded font-bold hidden">S'inscrire</button>
     </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js";
+
+        const auth = getAuth(initializeApp({
+            apiKey: "AIzaSyCdaDhtjMSu1cdW5qbtGN47pkOEyh3yi1A",
+            authDomain: "scriptstate-2d090.firebaseapp.com",
+            projectId: "scriptstate-2d090"
+        }));
+
+        let generatedCode = "";
+
+        window.sendCode = function() {
+            generatedCode = Math.floor(100000 + Math.random() * 900000).toString();
+            emailjs.send("service_e5r5jcg", "template_j7tsg07", {
+                to_email: document.getElementById('email').value,
+                code: generatedCode
+            }).then(() => {
+                alert("Code envoyé ! Vérifie tes mails.");
+                document.getElementById('verificationCode').classList.remove('hidden');
+                document.getElementById('registerBtn').classList.remove('hidden');
+                document.getElementById('sendBtn').classList.add('hidden');
+            }).catch((err) => alert("Erreur d'envoi : " + JSON.stringify(err)));
+        };
+
+        window.verifyAndRegister = function() {
+            const userInput = document.getElementById('verificationCode').value;
+            if (userInput === generatedCode) {
+                createUserWithEmailAndPassword(auth, document.getElementById('email').value, document.getElementById('password').value)
+                    .then(() => { alert("Compte créé !"); window.location.href = "index.html"; })
+                    .catch((e) => alert("Erreur Firebase : " + e.message));
+            } else {
+                alert("Code incorrect !");
+            }
+        };
+    </script>
 </body>
 </html>
