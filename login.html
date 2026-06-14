@@ -13,14 +13,19 @@
         <input id="email" type="email" placeholder="Email" class="w-full p-8 mb-12 bg-black rounded-3xl border-4 border-gray-700 text-4xl placeholder-gray-600 focus:border-purple-500 outline-none transition-all">
         <input id="password" type="password" placeholder="Mot de passe" class="w-full p-8 mb-16 bg-black rounded-3xl border-4 border-gray-700 text-4xl placeholder-gray-600 focus:border-purple-500 outline-none transition-all">
         
-        <button id="registerBtn" onclick="register()" class="w-full py-10 bg-purple-600 hover:bg-purple-500 rounded-3xl font-black text-5xl transition-transform hover:scale-105 active:scale-95 shadow-2xl">
-            VALIDER
-        </button>
+        <div class="flex flex-col gap-6">
+            <button onclick="login()" class="w-full py-8 bg-blue-600 hover:bg-blue-500 rounded-3xl font-black text-4xl transition-transform hover:scale-105 shadow-xl">
+                SE CONNECTER
+            </button>
+            <button onclick="register()" class="w-full py-8 bg-purple-600 hover:bg-purple-500 rounded-3xl font-black text-4xl transition-transform hover:scale-105 shadow-xl">
+                S'INSCRIRE
+            </button>
+        </div>
     </div>
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
-        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js";
 
         const auth = getAuth(initializeApp({
             apiKey: "AIzaSyCdaDhtjMSu1cdW5qbtGN47pkOEyh3yi1A",
@@ -28,15 +33,21 @@
             projectId: "scriptstate-2d090"
         }));
 
+        // Fonction pour se connecter
+        window.login = function() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            signInWithEmailAndPassword(auth, email, password)
+                .then(() => { alert("Connexion réussie !"); window.location.href = "index.html"; })
+                .catch((e) => alert("Erreur : " + e.message));
+        };
+
+        // Fonction pour s'inscrire
         window.register = function() {
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
-
             createUserWithEmailAndPassword(auth, email, password)
-                .then(() => { 
-                    alert("Compte créé avec succès !"); 
-                    window.location.href = "index.html"; 
-                })
+                .then(() => { alert("Compte créé !"); window.location.href = "index.html"; })
                 .catch((e) => alert("Erreur : " + e.message));
         };
     </script>
