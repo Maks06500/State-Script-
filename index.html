@@ -8,7 +8,6 @@
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Code de protection Firebase -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
         import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js";
@@ -70,11 +69,11 @@
     <section class="py-8 text-center">
         <div class="flex justify-center gap-12 mb-4">
             <div>
-                <div class="text-4xl font-black text-purple-500">178</div>
+                <div id="compteur-cles" class="text-4xl font-black text-purple-500">0</div>
                 <div class="text-xs font-bold text-gray-400 uppercase tracking-widest">Clés actives</div>
             </div>
             <div>
-                <div class="text-4xl font-black text-purple-500">59</div>
+                <div id="compteur-avis" class="text-4xl font-black text-purple-500">0</div>
                 <div class="text-xs font-bold text-gray-400 uppercase tracking-widest">Avis positifs</div>
             </div>
         </div>
@@ -187,6 +186,23 @@
                 "line_linked": { "enable": true, "distance": 150, "color": "#7c3aed", "opacity": 0.4, "width": 1 },
                 "move": { "enable": true, "speed": 1 }
             }
+        });
+
+        function animerCompteur(id, cible, duree) {
+            const element = document.getElementById(id);
+            const startTime = performance.now();
+            function update(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duree, 1);
+                element.textContent = Math.floor(progress * cible);
+                if (progress < 1) requestAnimationFrame(update);
+            }
+            requestAnimationFrame(update);
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            animerCompteur('compteur-cles', 178, 30000);
+            animerCompteur('compteur-avis', 59, 30000);
         });
     </script>
 </body>
