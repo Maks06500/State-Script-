@@ -38,6 +38,15 @@
             aspect-ratio: 16 / 9;
             overflow: hidden; 
         }
+        
+        /* Animation du logo */
+        .animate-pulse-slow {
+            animation: pulse-slow 3s infinite;
+        }
+        @keyframes pulse-slow {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+        }
     </style>
 </head>
 <body>
@@ -45,7 +54,7 @@
     <div id="particles-js"></div>
 
     <nav class="p-6 flex justify-between items-center max-w-5xl mx-auto">
-        <div class="text-2xl font-black italic">State<span class="text-purple-500">Script</span></div>
+        <div class="text-2xl font-black italic animate-pulse-slow">State<span class="text-purple-500">Script</span></div>
         <div class="flex gap-4 text-sm font-bold text-gray-300">
             <a href="installation.html" class="hover:text-white transition">Installation</a>
             <span class="text-white flex items-center gap-2">| 🇫🇷 Accueil</span>
